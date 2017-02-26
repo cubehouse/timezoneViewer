@@ -2,7 +2,9 @@
 
 This is a very simple web interface I use to quickly get the timezone of a location on Earth.
 
-It is available at https://tz.jamie.holdings, or as a Docker image cube/tz.
+It is available at https://tz.jamie.holdings, or as a Docker image ```cube/tz```.
+
+![tz.jamie.holdings](/screenshot.png?raw=true)
 
 ## Features
 
