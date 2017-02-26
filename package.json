@@ -1,0 +1,23 @@
+{
+  "name": "tz.jamie.holdings",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "moment-timezone": "^0.5.11",
+    "morgan": "^1.7.0",
+    "tz-lookup": "^6.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "./node_modules/.bin/nodemon",
+    "start": "node index.js"
+  },
+  "author": "Jamie Holding",
+  "license": "ISC"
+}

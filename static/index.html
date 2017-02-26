@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>What Timezone Is That Place In?</title>
+        <!-- Leaflet (map renderer) -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- app CSS -->
+        <link rel="stylesheet" href="/style.css" />
+    </head>
+    <body>
+        <div class='container container-fluid'>
+            <h1>What Timezone Is That Place?</h1>
+            <p>Search and click on the map to find out it's longitude, latitude, timezone, and the current local time.</p>
+
+            <!-- show any errors here -->
+            <div id="error" class='alert alert-danger hidden'></div>
+
+            <div class="row">
+                <div class="col-xs-12 col-md-8">
+                    <!-- rendered map -->
+                    <div id="mapid" class='map'></div>
+                </div>
+                <div class="col-xs-6 col-md-4">
+                    <div class='searchform'>
+                        <!-- Search form -->
+                        <form>
+                            <input type='text' id='mapsearch' />
+                            <button id='search'>Search</button>
+                        </form>
+
+                        <!-- Search results area -->
+                        <div id="searchresults"></div>
+                    </div>
+                </div>
+            </div>
+
+            <p>Written with anger at timezones by <a href='https://jamie.holdings'>Jamie Holding</a></p>
+
+        </div>
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <!-- app logic -->
+        <script src="/logic.js"></script>
+    </body>
+</html>
