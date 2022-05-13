@@ -1,8 +1,8 @@
-# Timezone Viewer (cube/tz)
+# What Timezone / Time is it at a given location?
 
 This is a very simple web interface I use to quickly get the timezone of a location on Earth.
 
-It is available at https://tz.jamie.holdings, or as a Docker image ```cube/tz```.
+It is available at https://tz.jamie.holdings.
 
 ![tz.jamie.holdings](/screenshot.png?raw=true)
 
@@ -18,10 +18,7 @@ It is available at https://tz.jamie.holdings, or as a Docker image ```cube/tz```
 
 ## Usage
 
-Run ```node index.js```, and it will start a web sever on port 3000 (override using environment variable PORT).
+Application is designed for Cloudflare Pages.
 
-## Docker
+Run ```npm run dev```, and Cloudflare Wrangler should startup the service.
 
-Run ```docker run --rm -p 3000 cube/tz``` to start on port 3000.
-
-To change port (for example, to port 8080), run ```docker run --rm -p 8080:3000 cube/tz```
