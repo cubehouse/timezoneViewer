@@ -9,6 +9,8 @@ import Stack from '@mui/material/Stack';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LanguageIcon from '@mui/icons-material/Language';
+import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
 
 import { useEffect, useState } from 'react';
 
@@ -64,9 +66,12 @@ export function App() {
                     display: 'flex',
                     flexDirection: 'column'
                 }}>
-                    <p>
+                    <Typography variant="h4">
+                        tzdata Finder
+                    </Typography>
+                    <Typography variant="body1" color="text.secondary">
                         Search or click a location to find it's timezone, local time, longitude and latitude.
-                    </p>
+                    </Typography>
                     <Stack direction="column" spacing={1}>
                         <Badge color="info" icon={<LanguageIcon />} label={timezone} />
                         <Badge color="success" icon={<LocationOnIcon />} label={`${position?.lat}, ${position?.lng}`} />
@@ -76,7 +81,13 @@ export function App() {
                     <SearchResults textSearch={searchText} onSelectedPosition={(newMapPos => {
                         setMapOrigin(newMapPos);
                     })} />
-                    <p>Made with love &amp; anger of timezones by <a href='https://github.com/cubehouse'>Jamie Holding</a></p>
+                    <Typography variant="body2" color="text.secondary">
+                        Made with love &amp; anger of timezones by
+                        {' '}
+                        <Link color="inherit" href="https://github.com/cubehouse">
+                            Jamie Holding
+                        </Link>
+                    </Typography>
                 </Grid>
                 <Grid item xs={3}>
                     <Map lat={mapOrigin.lat} lng={mapOrigin.lng} onPositionChange={setPosition} />
