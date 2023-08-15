@@ -10,7 +10,7 @@ export function SearchResults({ textSearch = '', onSelectedPosition = () => { } 
 
     const performSearch = () => {
         // request via "https://nominatim.openstreetmap.org/search/" + text + "?format=json"
-        const url = `https://nominatim.openstreetmap.org/search/${textSearch}?format=json`;
+        const url = `https://nominatim.openstreetmap.org/search?q=${textSearch}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
