@@ -10,8 +10,13 @@ export function SearchResults({ textSearch = '', onSelectedPosition = () => { } 
 
     const performSearch = () => {
         // request via "https://nominatim.openstreetmap.org/search/" + text + "?format=json"
-        const url = `https://nominatim.openstreetmap.org/search?q=${textSearch}`;
-        fetch(url)
+        const url = `https://geocode.maps.co/search?q=${textSearch}`;
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
             .then(res => res.json())
             .then(data => {
                 setSearchResults(data.map((x) => {
