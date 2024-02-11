@@ -25,6 +25,7 @@
   },
   "scripts": {
     "dev": "wrangler pages dev --live-reload --proxy 3000 -- vite --host ::1 --port 3000",
+    "devlive": "wrangler pages dev .",
     "build": "vite build",
     "preview": "vite preview"
   },
