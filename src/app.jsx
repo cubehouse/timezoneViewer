@@ -27,6 +27,7 @@ export function App() {
         lat: 51.477936,
         lng: -0.001471
     });
+    const [sigFigures, setSigFigures] = useState(6);
 
     // if origin changes, use this as our new position too
     useEffect(() => {
@@ -58,6 +59,33 @@ export function App() {
         };
     }, [timezone]);
 
+    const [stringExport, setStringExport] = useState('');
+    const [jsonExport, setJsonExport] = useState({});
+    const [geoJSON, setGeoJSON] = useState({});
+    useEffect(() => {
+        // update a JSON object representing the current state each time the position changes
+        if (position && position.lat && position.lng) {
+            setJsonExport({
+                latitude: position.lat.toFixed(sigFigures),
+                longitude: position.lng.toFixed(sigFigures),
+            });
+
+            setGeoJSON({
+                type: 'Feature',
+                geometry: {
+                    type: 'Point',
+                    coordinates: [position.lng.toFixed(sigFigures), position.lat.toFixed(sigFigures)]
+                },
+                properties: {
+                    timezone: timezone,
+                    localTime: localTime
+                }
+            });
+
+            setStringExport(`${position.lat.toFixed(sigFigures)}, ${position.lng.toFixed(sigFigures)}`);
+        }
+    }, [position, sigFigures]);
+
     return (
         <Box style={{ height: '100%' }}>
             <Grid style={{ height: '100%' }} container spacing={2} columns={4}>
@@ -72,9 +100,14 @@ export function App() {
                     <Typography variant="body1" color="text.secondary">
                         Search or click a location to find it's timezone, local time, longitude and latitude.
                     </Typography>
+                    <Typography variant="body1" color="text.secondary">
+                        Helper badges are shown with GeoJSON and basic JSON representations of the current location. Click to copy to clipboard.
+                    </Typography>
                     <Stack direction="column" spacing={1}>
                         <Badge color="info" icon={<LanguageIcon />} label={timezone} />
-                        <Badge color="success" icon={<LocationOnIcon />} label={`${position?.lat}, ${position?.lng}`} />
+                        <Badge color="success" icon={<LocationOnIcon />} label={`${stringExport}`} />
+                        <Badge color="success" icon={<LocationOnIcon />} label={`${JSON.stringify(jsonExport)}`} />
+                        <Badge color="success" icon={<LocationOnIcon />} label={`${JSON.stringify(geoJSON)}`} />
                         <Badge color="secondary" icon={<AccessTimeIcon />} label={localTime} />
                     </Stack>
                     <SearchBox onSearch={(txt) => setSearchText(txt)} />
