@@ -66,8 +66,8 @@ export function App() {
         // update a JSON object representing the current state each time the position changes
         if (position && position.lat && position.lng) {
             setJsonExport({
-                latitude: position.lat.toFixed(sigFigures),
-                longitude: position.lng.toFixed(sigFigures),
+                latitude: Number(position.lat).toFixed(sigFigures),
+                longitude: Number(position.lng).toFixed(sigFigures),
             });
 
             setGeoJSON({
