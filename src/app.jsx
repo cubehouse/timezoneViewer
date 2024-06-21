@@ -74,7 +74,7 @@ export function App() {
                 type: 'Feature',
                 geometry: {
                     type: 'Point',
-                    coordinates: [position.lng.toFixed(sigFigures), position.lat.toFixed(sigFigures)]
+                    coordinates: [Number(position.lng).toFixed(sigFigures), Number(position.lat).toFixed(sigFigures)]
                 },
                 properties: {
                     timezone: timezone,
@@ -82,7 +82,7 @@ export function App() {
                 }
             });
 
-            setStringExport(`${position.lat.toFixed(sigFigures)}, ${position.lng.toFixed(sigFigures)}`);
+            setStringExport(`${Number(position.lat).toFixed(sigFigures)}, ${Number(position.lng).toFixed(sigFigures)}`);
         }
     }, [position, sigFigures]);
 
