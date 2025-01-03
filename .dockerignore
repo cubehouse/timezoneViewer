@@ -1,0 +1,8 @@
+node_modules/
+.wrangler/
+.git/
+dist/
+README.md
+screenshot.png
+Dockerfile
+.gitignore
